@@ -4,6 +4,7 @@
 #include "YokoiEnvyfreeHRLQ.h"
 #include "MaximalEnvyfreeHRLQ.h"
 #include "CriticalRSM.h"
+#include "StronglyStableMatching.h"
 #include "Utils.h"
 #include "GraphReader.h"
 #include "Matching.h"
@@ -63,6 +64,7 @@ int main(int argc, char* argv[]) {
     bool compute_ehrlq = false;
     bool compute_popular_lq = false;
     bool compute_critical_rsm = false;
+    bool compute_strong_stable = false;
     bool A_proposing = true;
     const char* input_file = nullptr;
     const char* output_file = nullptr;
@@ -85,6 +87,7 @@ int main(int argc, char* argv[]) {
             case 'e': compute_ehrlq = true; break;
             case 'l': compute_popular_lq = true; break;
             case 'r': compute_critical_rsm = true; break;
+            case 'g': compute_strong_stable = true; break;
             case 'i': input_file = optarg; break;
             case 'o': output_file = optarg; break;
             case '?':
@@ -115,6 +118,8 @@ int main(int argc, char* argv[]) {
         status = compute_matching<MaxCardPopularLQ>(A_proposing, input_file, output_file);
     } else if(compute_critical_rsm) {
         status = compute_matching<CriticalRSM>(A_proposing, input_file, output_file);
+    } else if(compute_strong_stable) {
+        status = compute_matching<StronglyStableMatching>(A_proposing, input_file, output_file);
     }
 
     return status ? 0 : 1;

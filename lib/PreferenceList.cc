@@ -102,7 +102,8 @@ PreferenceList PreferenceList::get_prefS() const {
         if (i->vertex != nullptr) {
             prefS.emplace_back(i->vertex);
         } else {
-            auto index = std::distance(i, this->cbegin());
+            // auto index = std::distance(i, this->cbegin());
+            auto index = std::distance(this->cbegin(), i);
             auto tied_list = this->get_ties(index);
             for(auto j = tied_list.begin(), end = tied_list.end(); j != end; ++j) {
                 prefS.emplace_back(j->vertex);

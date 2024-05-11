@@ -4,4 +4,4 @@ add_library(graph
                 MatchingAlgorithm.cc Matching.cc MatchingAlgorithm.cc
                 YokoiEnvyfreeHRLQ.cc MaximalEnvyfreeHRLQ.cc CriticalRSM.cc
                 BipartiteGraph.cc Partner.cc PartnerList.cc PreferenceList.cc Vertex.cc
-                GraphReader.cc Utils.cc)
+                GraphReader.cc Utils.cc StronglyStableMatching.cc NormalBipartiteGraph.cc)
